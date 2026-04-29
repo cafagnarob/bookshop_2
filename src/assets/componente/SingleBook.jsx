@@ -10,11 +10,21 @@ class SingleBook extends Component {
   render() {
     return (
       <Col key={this.props.asin} className="col-6 col-md-6 col-lg-3">
-        <Card className="h-100">
+        <Card
+          className="h-100 p-3"
+          style={{
+            background: this.state.selected ? "green" : "none",
+          }}
+        >
           <Card.Img
             variant="top"
             src={this.props.img}
-            style={{ height: "300px" }}
+            style={{ height: "300px", cursor: "pointer" }}
+            onClick={() =>
+              this.setState({
+                selected: !this.state.selected,
+              })
+            }
           />
           <Card.Body className="d-flex flex-column">
             <Card.Title>{this.props.title}</Card.Title>
