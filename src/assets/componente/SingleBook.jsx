@@ -2,7 +2,7 @@ import { Component } from "react"
 import { Col } from "react-bootstrap"
 import Button from "react-bootstrap/Button"
 import Card from "react-bootstrap/Card"
-import CommentArea from "./CommentArea"
+// import CommentArea from "./CommentArea"
 
 class SingleBook extends Component {
   state = {
@@ -10,7 +10,7 @@ class SingleBook extends Component {
   }
   render() {
     return (
-      <Col key={this.props.asin} className="col-6 col-md-6 col-lg-3">
+      <Col key={this.props.asin} className="col-12 col-md-6 col-lg-4">
         <Card
           className="h-100 p-3"
           style={{
@@ -38,7 +38,7 @@ class SingleBook extends Component {
               Buy
             </Button>
           </Card.Body>
-          {this.state.selected && <CommentArea asin={this.props.asin} />}
+          {/* {this.state.selected && <CommentArea asin={this.props.asin} />} */}
         </Card>
       </Col>
     )

@@ -29,6 +29,7 @@ class CommentList extends Component {
         console.log("errore nella fetch", err)
       })
   }
+
   render() {
     return (
       <>

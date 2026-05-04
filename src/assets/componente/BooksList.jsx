@@ -5,6 +5,7 @@ import { Container, Row, Col, Form } from "react-bootstrap"
 class BookList extends Component {
   state = {
     search: "",
+    asin: "",
   }
   render() {
     return (
@@ -15,7 +16,7 @@ class BookList extends Component {
             <Form.Control
               type="text"
               id="SearchBook"
-              className="mb-5"
+              className="mb-5 "
               value={this.state.search}
               onChange={(e) => {
                 this.setState({ search: e.target.value })
@@ -30,7 +31,7 @@ class BookList extends Component {
                 .toLowerCase()
                 .includes(this.state.search.toLowerCase()),
             )
-            .slice(0, 4)
+            .slice(0, 3)
             .map((libro, i) => {
               return (
                 <SingleBook
