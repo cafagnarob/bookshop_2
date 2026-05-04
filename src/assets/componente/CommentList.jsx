@@ -8,7 +8,8 @@ class CommentList extends Component {
   state = {
     comments: [],
   }
-  componentDidMount() {
+
+  getFetch() {
     fetch(ApiLink + this.props.asin, {
       headers: {
         Authorization: token,
@@ -28,6 +29,16 @@ class CommentList extends Component {
       .catch((err) => {
         console.log("errore nella fetch", err)
       })
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.props.asin) {
+      this.getFetch()
+    }
+  }
+
+  componentDidMount() {
+    this.getFetch()
   }
 
   render() {

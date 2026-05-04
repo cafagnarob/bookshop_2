@@ -21,11 +21,9 @@ class SingleBook extends Component {
             variant="top"
             src={this.props.img}
             style={{ height: "300px", cursor: "pointer" }}
-            onClick={() =>
-              this.setState({
-                selected: !this.state.selected,
-              })
-            }
+            onClick={() => {
+              this.props.onSelect(this.props.asin)
+            }}
           />
           <Card.Body className="d-flex flex-column">
             <Card.Title>{this.props.title}</Card.Title>

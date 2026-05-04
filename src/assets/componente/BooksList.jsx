@@ -5,7 +5,6 @@ import { Container, Row, Col, Form } from "react-bootstrap"
 class BookList extends Component {
   state = {
     search: "",
-    asin: "",
   }
   render() {
     return (
@@ -40,6 +39,8 @@ class BookList extends Component {
                   title={libro.title}
                   img={libro.img}
                   category={libro.category}
+                  selected={this.props.selectedAsin === libro.asin}
+                  onSelect={this.props.onSelect}
                 />
               )
             })}
