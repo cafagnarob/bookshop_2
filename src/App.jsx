@@ -18,6 +18,12 @@ class App extends Component {
     this.setState({ selectedAsin: asin })
   }
 
+  onSelect = (asin) => {
+    this.setState({
+      selectedAsin: asin,
+    })
+  }
+
   render() {
     return (
       <>
@@ -29,31 +35,31 @@ class App extends Component {
               <BookList
                 libri={Fantasy}
                 onSelect={this.setSelectedAsin}
-                selectedAsin={this.setState.selectedAsin}
+                selectedAsin={this.state.selectedAsin}
               />
               <h3 className="mt-5">Horror</h3>
               <BookList
                 libri={Horror}
                 onSelect={this.setSelectedAsin}
-                selectedAsin={this.setState.selectedAsin}
+                selectedAsin={this.state.selectedAsin}
               />
               <h3 className="mt-5">History</h3>
               <BookList
                 libri={History}
                 onSelect={this.setSelectedAsin}
-                selectedAsin={this.setState.selectedAsin}
+                selectedAsin={this.state.selectedAsin}
               />
               <h3 className="mt-5">Scifi</h3>
               <BookList
                 libri={Scifi}
                 onSelect={this.setSelectedAsin}
-                selectedAsin={this.setState.selectedAsin}
+                selectedAsin={this.state.selectedAsin}
               />
               <h3 className="mt-5">Romance</h3>
               <BookList
                 libri={Romance}
                 onSelect={this.setSelectedAsin}
-                selectedAsin={this.setState.selectedAsin}
+                selectedAsin={this.state.selectedAsin}
               />
             </Col>
             <Col md={4}>

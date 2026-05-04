@@ -5,16 +5,13 @@ import Card from "react-bootstrap/Card"
 // import CommentArea from "./CommentArea"
 
 class SingleBook extends Component {
-  state = {
-    selected: false,
-  }
   render() {
     return (
       <Col key={this.props.asin} className="col-12 col-md-6 col-lg-4">
         <Card
           className="h-100 p-3"
           style={{
-            background: this.state.selected ? "green" : "none",
+            background: this.props.selected ? "green" : "none",
           }}
         >
           <Card.Img
