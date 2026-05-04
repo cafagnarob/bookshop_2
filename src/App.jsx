@@ -18,11 +18,7 @@ class App extends Component {
     this.setState({ selectedAsin: asin })
   }
 
-  onSelect = (asin) => {
-    this.setState({
-      selectedAsin: asin,
-    })
-  }
+  onSelect = this.setSelectedAsin
 
   render() {
     return (
