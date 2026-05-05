@@ -16,7 +16,7 @@ const BookList = (props) => {
             className="mb-5 "
             value={search}
             onChange={(e) => {
-              setSearch({ search: e.target.value })
+              setSearch(e.target.value)
             }}
           />
         </Col>
