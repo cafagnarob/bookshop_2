@@ -1,16 +1,14 @@
-import { Component } from "react"
+import { useEffect, useState } from "react"
 import SingleComment from "./SingleComment"
 const ApiLink = "https://striveschool-api.herokuapp.com/api/comments/"
 const token =
   "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWYzNDYwOWYwNDIwZDAwMTUxNTVhNzAiLCJpYXQiOjE3Nzc1NTA4NTcsImV4cCI6MTc3ODc2MDQ1N30.-MqqsDAGsgR7WwZ8-T63KOCSOBqSItJG45Hu83yAJNE"
 
-class CommentList extends Component {
-  state = {
-    comments: [],
-  }
+const CommentList = ({ asin }) => {
+  const [comments, setComments] = useState([])
 
-  getFetch() {
-    fetch(ApiLink + this.props.asin, {
+  const getFetch = () => {
+    fetch(ApiLink + asin, {
       headers: {
         Authorization: token,
       },
@@ -23,7 +21,7 @@ class CommentList extends Component {
         }
       })
       .then((data) => {
-        this.setState({ comments: data })
+        setComments(data)
         console.log(data)
       })
       .catch((err) => {
@@ -31,25 +29,19 @@ class CommentList extends Component {
       })
   }
 
-  componentDidUpdate(prevProps) {
-    if (prevProps.asin !== this.props.asin) {
-      this.getFetch()
+  useEffect(() => {
+    if (asin) {
+      getFetch()
     }
-  }
+  }, [asin])
 
-  componentDidMount() {
-    this.getFetch()
-  }
-
-  render() {
-    return (
-      <>
-        {this.state.comments.map((c) => {
-          return <SingleComment key={c._id} comment={c} />
-        })}
-      </>
-    )
-  }
+  return (
+    <>
+      {comments.map((c) => {
+        return <SingleComment key={c._id} comment={c} />
+      })}
+    </>
+  )
 }
 
 export default CommentList
