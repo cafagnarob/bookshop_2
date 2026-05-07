@@ -38,7 +38,7 @@ const CommentList = ({ asin }) => {
   return (
     <>
       {comments.map((c) => {
-        return <SingleComment key={c._id} comment={c} />
+        return <SingleComment key={c._id} comment={c} data-testid="comment" />
       })}
     </>
   )
