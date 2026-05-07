@@ -37,6 +37,7 @@ const BookList = (props) => {
                 category={libro.category}
                 selected={props.selectedAsin === libro.asin}
                 onSelect={props.onSelect}
+                data-testid="card"
               />
             )
           })}

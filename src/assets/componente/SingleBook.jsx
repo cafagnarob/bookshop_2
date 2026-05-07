@@ -5,20 +5,25 @@ import Card from "react-bootstrap/Card"
 
 const SingleBook = (props) => {
   return (
-    <Col key={props.asin} className="col-12 col-md-6 col-lg-4">
+    <Col
+      key={props.asin}
+      className="col-12 col-md-6 col-lg-4"
+      data-testid="colCard"
+    >
       <Card
         className="h-100 p-3"
+        onClick={() => {
+          props.onSelect(props.asin)
+        }}
         style={{
           background: props.selected ? "green" : "none",
         }}
+        data-testid="card"
       >
         <Card.Img
           variant="top"
           src={props.img}
           style={{ height: "300px", cursor: "pointer" }}
-          onClick={() => {
-            props.onSelect(props.asin)
-          }}
         />
         <Card.Body className="d-flex flex-column">
           <Card.Title>{props.title}</Card.Title>
